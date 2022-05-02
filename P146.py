@@ -11,7 +11,6 @@ window = Tk(screenName="C146: The Fibonacci flower:   ")
 window.geometry("400x400")
 
 labelSeries = Label(master=window, text="Fibonacci Series:")
-labelFlower = Label(master=window)
 labelSpiral = Label(master=window)
 
 def genFibonacii():
@@ -22,12 +21,11 @@ def genFibonacii():
     counter = 1
     
     while counter <= num:
-        labelSeries["text"] = str(sum) + " "
+        labelSeries["text"] += str(sum) + " "
         counter += 1
         last = now
         now = sum
         sum = last + now
-    labelFlower["text"] = "Flower is fully bloomed"
     labelSpiral["text"] = "Spirals in right direction are, " + str(last) + ", and spirals in left direction are, " + str(now) + ".\nTotal spirals are " + str(sum)
 
 entryNumberToGenInput = Entry(master=window, text="10")
@@ -36,7 +34,6 @@ buttonShowSeries = Button(master=window, text="Show Fibonacci Series", command=g
 entryNumberToGenInput.pack()
 buttonShowSeries.pack()
 labelSeries.pack()
-labelFlower.pack()
 labelSpiral.pack()
 
 window.mainloop()
